@@ -64,8 +64,8 @@ void print_prompt()
     uname_pid = getpwuid(getuid()); /* Get information about passwd from system by the sys_execution "getpwuid"
                                      Include NAME/PASSWORD/...*/
     getcwd(cwd, sizeof(cwd));
-    char tag = strcmp(uname_pid->pw_name, "root")==0 ? '$':'#';
-    printf("{%s@%s:%s}%c> ",uname_pid->pw_name, uname_ptr.nodename, cwd, tag);
+    char tag = strcmp(uname_pid->pw_name, "root")==0 ? '#':'$';
+    printf("{%s@%s:%s} %c> ",uname_pid->pw_name, uname_ptr.nodename, cwd, tag);
 }
 
 // Input command line.
@@ -78,7 +78,10 @@ void input_line(char *cmd)
     buffer = getline(&cmd, &buf_bytes, stdin); /*A stdin function from C++
                                                 IF success--return bytes of
                                                 str_cmd OR return -1*/
-    
+    if (buffer < 0) {
+        puts("");
+        return;
+    }
     cmd[(int)(--buffer)] = '\0'; // End tag of a string in C
     replace_char(cmd);
 }
@@ -224,15 +227,15 @@ void PrintAbout()
 // Print MyShell's Byebye Tag
 void PrintBye()
 {
-    printf("=======================\n");
-    printf("BBBBB  Y     Y  EEEEEE \n");
-    printf("B    B  Y   Y   E      \n");
-    printf("B    B   Y Y    E      \n");
-    printf("BBBBB     Y     EEEEEE \n");
-    printf("B    B    Y     E      \n");
-    printf("B    B    Y     E      \n");
-    printf("BBBBB     Y     EEEEEE \n");
-    printf("=======================\n\n");
+    printf("===============================================\n");
+    printf("BBBBB  Y     Y  EEEEEE  BBBBB  Y     Y  EEEEEE \n");
+    printf("B    B  Y   Y   E       B    B  Y   Y   E      \n");
+    printf("B    B   Y Y    E       B    B   Y Y    E      \n");
+    printf("BBBBB     Y     EEEEEE  BBBBB     Y     EEEEEE \n");
+    printf("B    B    Y     E       B    B    Y     E      \n");
+    printf("B    B    Y     E       B    B    Y     E      \n");
+    printf("BBBBB     Y     EEEEEE  BBBBB     Y     EEEEEE \n");
+    printf("===============================================\n\n");
     printf("\n<Process completed>\n\n");
 }
 

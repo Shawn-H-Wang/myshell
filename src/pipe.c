@@ -13,7 +13,7 @@
 #include "wc.h"
 #include "ls.h"
 
-char *NONE_PRINT_CMDS[]={"exit", "cd", "cp", "mv", "rm", "touch", "mkdir", "rmdir", "su"};
+char *NONE_PRINT_CMDS[]={"exit", "cd", "cp", "mv", "rm", "touch", "mkdir", "rmdir", "su", "clear"};
 int TAGPIPE=1;
 
 void exec_cmd_pipd2(char *cmd, char *buf, history *hist)
@@ -27,7 +27,7 @@ void exec_cmd_pipd2(char *cmd, char *buf, history *hist)
         argv[0] = NULL;
         argv[0] = split_blank(cmd, 0); // Get the name of the cmd
         // Judge some commands could without any special characters.
-        if (is_in_list(NONE_PRINT_CMDS, argv[0], 9)) {
+        if (is_in_list(NONE_PRINT_CMDS, argv[0], 10)) {
             printf("Command %s: can't be executed with pipe!\n", argv[0]);
             return;
         }

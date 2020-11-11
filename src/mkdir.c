@@ -7,6 +7,7 @@
 
 #include "mkdir.h"
 #include "cd.h"
+#include "Shell.h"
 
 int exec_mkdir(char *cmd)
 {
