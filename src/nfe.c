@@ -16,7 +16,7 @@ int TAG=1;
 
 int f_execmd(char *argv[], char *cmd, history *hist)
 {
-    if (strcmp(argv[0], "exit") == 0) {
+    if (strcmp(argv[0], "exit") == 0  || strcmp(argv[0], "quit")==0) {
         puts("Shell is exiting...");
         return -1;
     }
@@ -64,68 +64,7 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "mkdir") == 0) {
-        char *args = split_blank(cmd, 1);
-        if (args == NULL) {
-            puts("None arguments for mkdir! Please check your input!");
-            return 1;
-        }
-        char *token = split_blank(cmd, 1);
-        if (token == NULL) {
-            creat_dir(args);
-        }
-        else {
-            if (strcmp(args, "-p")==0) {
-                if (strcmp(token, "/")==0 || strcmp(token, "./")==0 || strcmp(token, ".")==0) {
-                    puts("Your path is root or current directory, please check your input!");
-                    return 1;
-                }
-                creat_dirs(token);
-            }
-            else if (strcmp(args, "--p")==0) {
-                puts("Please input the argument: \"-p\" to create directory in recursion.");
-            }
-            else {
-                puts("Wrong arguments for mkdir! Please check your input!");
-            }
-        }
-        return 1;
-    }
-    else if (strcmp(argv[0], "rmdir") == 0) {
-        char *args = split_blank(cmd, 1);
-        if (args == NULL) {
-            puts("None arguments for rmdir! Please check your input!");
-            return 1;
-        }
-        char *token = split_blank(cmd, 1);
-        char *input_yn = (char*)malloc(4);
-        if (token == NULL) {
-            while (1) {
-                printf("If you wang to remove the directory: %s? Please input [yes/no] ", args);
-                ssize_t buffer;
-                size_t buf_bytes = 4;
-                buffer = getline(&input_yn, &buf_bytes, stdin);
-                input_yn[(int)--buffer] = '\0';
-                if (strcmp(input_yn, "no")==0 || strcmp(input_yn, "yes")==0) {
-                    break;
-                }
-                else {
-                    puts("Your input is wrong! Please check and re_input!");
-                }
-            }
-            if (strcmp(input_yn, "yes")==0) {
-                
-            }
-        }
-        else {
-            if (strcmp(args, "-f")==0) {
-                
-            }
-            else {
-                puts("Wrong arguments for rmdir! Please check your input!");
-            }
-        }
-        free(input_yn);
-        return 1;
+        return exec_mkdir(cmd);
     }
     else if (strcmp(argv[0], "su") == 0) {
         return 1;

@@ -8,6 +8,35 @@
 #include "mkdir.h"
 #include "cd.h"
 
+int exec_mkdir(char *cmd)
+{
+    char *args = split_blank(cmd, 1);
+    if (args == NULL) {
+        puts("None arguments for mkdir! Please check your input!");
+        return 1;
+    }
+    char *token = split_blank(cmd, 1);
+    if (token == NULL) {
+        creat_dir(args);
+    }
+    else {
+        if (strcmp(args, "-p")==0) {
+            if (strcmp(token, "/")==0 || strcmp(token, "./")==0 || strcmp(token, ".")==0) {
+                puts("Your path is root or current directory, please check your input!");
+                return 1;
+            }
+            creat_dirs(token);
+        }
+        else if (strcmp(args, "--p")==0) {
+            puts("Please input the argument: \"-p\" to create directory in recursion.");
+        }
+        else {
+            puts("Wrong arguments for mkdir! Please check your input!");
+        }
+    }
+    return 1;
+}
+
 // Create dir without any arguments
 void creat_dir(const char *path)
 {

@@ -19,7 +19,11 @@ typedef struct {
     char *his[MAX_HIS];
 }history;
 
+void exec_history(char*, history*);
+
 void init_hist(history*);
+
+void destroy_hist(history*);
 
 void add_hist(history*, const char*);
 

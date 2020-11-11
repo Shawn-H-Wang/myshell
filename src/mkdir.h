@@ -16,6 +16,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+int exec_mkdir(char*);
+
 void creat_dir(const char*);
 
 void creat_dirs(const char*);

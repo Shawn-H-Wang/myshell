@@ -6,6 +6,16 @@
 //
 
 #include "hist.h"
+#include "Shell.h"
+
+void exec_history(char *cmd, history *hist)
+{
+    char *args = split_blank(cmd, 1);
+    if (args == NULL || strlen(args) == 0)
+        print_hist(hist);
+    else
+        print_hist_arg(hist, args);
+}
 
 void init_hist(history *hist)
 {
@@ -17,6 +27,19 @@ void init_hist(history *hist)
         hist->his[i] = NULL;
     }
 }
+
+void destroy_hist(history *hist) {
+    if (hist == NULL)
+        return;
+    int i;
+    for (i=0; i<MAX_HIS; i++) {
+        if (hist->his[i] != NULL) {
+            free(hist->his[i]);
+        }
+    }
+    free(hist);
+}
+
 
 void add_hist(history *hist, const char *in_line)
 {

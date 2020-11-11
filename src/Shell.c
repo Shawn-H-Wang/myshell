@@ -9,7 +9,7 @@
 #include "cd.h"
 #include "nf.h"
 #include "nfe.h"
-#include "hist.h"
+#include "hist.h" 
 #include "pipe.h"
 #include "pwd.h"
 
@@ -45,6 +45,9 @@ void Shell_Looper()
             break;
         }
     }
+    // Free space of the cmd
+    free(cmd);
+    destroy_hist(hist);
 }
 
 /*

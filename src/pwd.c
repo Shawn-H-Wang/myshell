@@ -9,6 +9,17 @@
 
 char path[BUFSIZ];
 
+void exec_pwd()
+{
+    clear_path();
+    get_current_path(get_inode("."));
+    if (strlen(get_path())==0) {
+        printf("/\n");
+    } else {
+        printf("%s\n", get_path());
+    }
+}
+
 void clear_path()
 {
     int i;

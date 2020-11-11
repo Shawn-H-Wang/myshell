@@ -6,6 +6,7 @@
 //
 
 #include "main.h"
+#include "Shell.h"
 
 int main()
 {

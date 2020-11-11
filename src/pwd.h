@@ -15,6 +15,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+void exec_pwd(void);
+
 void clear_path(void);
 
 char* get_path(void);
