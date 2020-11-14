@@ -1,17 +1,17 @@
-OBJS = main.o\
-       Shell.o\
-	   cd.o\
-	   grep.o\
-	   hist.o\
-	   ls.o\
-	   mkdir.o\
-	   nf.o\
-	   nfe.o\
-	   pipe.o\
-	   pwd.o\
-	   rmdir.o\
-	   touch.o\
-	   wc.o\
+OBJS =	main.o\
+	Shell.o\
+	cd.o\
+	grep.o\
+	hist.o\
+	ls.o\
+	mkdir.o\
+	nf.o\
+	nfe.o\
+	pipe.o\
+	pwd.o\
+	rmdir.o\
+	touch.o\
+	wc.o\
 
 main: ${OBJS}
 $.o : $.c
