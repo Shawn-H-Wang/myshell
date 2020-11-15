@@ -8,7 +8,7 @@
 #include "ls.h"
 #include "Shell.h"
 
-char MESSAGE[BUFSIZ*2];
+char MESSAGE[BUFSIZ*2]; // Save message
 
 void clear_message()
 {
