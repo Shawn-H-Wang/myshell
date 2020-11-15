@@ -12,6 +12,8 @@ OBJS =	main.o\
 	rmdir.o\
 	touch.o\
 	wc.o\
+	cat.o\
+	cp.o\
 
 main: ${OBJS}
 $.o : $.c
