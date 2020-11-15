@@ -181,11 +181,6 @@ int exec_cmd(char *cmd)
             if (commds[1] == NULL || (token=split_blank(commds[1], 0)) == NULL) {
                 puts("Pipe without any command! Please check your input!!");
                 return 1;
-//                printf("> ");
-//                char *ncmd = (char*)malloc(MAX+1);
-//                input_line(ncmd);
-//                add_hist_str(hist->his[hist->length-1], ncmd);
-//                strcpy(commds[1], hist->his[hist->length-1]);
             }
             else {
                 commds[1][strlen(token)+1] = ' ';
@@ -197,7 +192,7 @@ int exec_cmd(char *cmd)
     else {  // With '&'
         int i=1;
         while (1) {
-            if (i >= 3) {
+            if (i > 3) {
                 puts("Too many processes need to be executed concurrently, we can only keep three!!");
                 break;
             }

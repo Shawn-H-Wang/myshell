@@ -93,9 +93,16 @@ void creat_dirs(const char* path)
     }
     if (token != NULL) {
         size_t l = strlen(token);
-        token[strlen(token)] = '/';
-        if (strlen(token) == l+1)
-            return;
+        token[l] = '/';
+        if (token[l] == '\0') {
+            if (token[0] != '/') {
+                creat_dir(strtok(token, "/"));
+            }
+            else {
+                free(buf);
+                return;
+            }
+        }
         else
             creat_dirs(token);
     }

@@ -16,6 +16,6 @@
 #include <dirent.h>
 #include <unistd.h>
 
-
+void remove_dir(char*);
 
 #endif /* rmdir_h */

@@ -8,6 +8,7 @@
 #include "nfe.h"
 #include "Shell.h"
 #include "cd.h"
+#include "ls.h"
 #include "pwd.h"
 #include "mkdir.h"
 #include "rmdir.h"
@@ -37,11 +38,14 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "ls") == 0) {
-        
+        exec_ls(cmd, 0);
+        return 1;
+    }
+    else if (strcmp(argv[0], "ll") == 0) {
+        exec_ll(cmd, 0);
         return 1;
     }
     else if (strcmp(argv[0], "cat") == 0) {
-        
         return 1;
     }
     else if (strcmp(argv[0], "mv") == 0) {
@@ -66,7 +70,7 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         char *input_yn = (char*)malloc(4);
         if (token == NULL) {
             while (1) {
-                printf("If you wang to remove the directory: %s? Please input [yes/no] ", args);
+                printf("If you want to remove the directory: %s? Please input [yes/no] ", args);
                 ssize_t buffer;
                 size_t buf_bytes = 4;
                 buffer = getline(&input_yn, &buf_bytes, stdin);

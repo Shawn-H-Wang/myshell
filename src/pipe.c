@@ -110,7 +110,16 @@ char *exec_cmd_pipd(char *cmd, history *hist)
             
         }
         else if (strcmp(argv[0], "ls")==0) {
-            
+            clear_message();
+            exec_ls(cmd, 1);
+            buf = get_message();
+            return buf;
+        }
+        else if (strcmp(argv[0], "ll")==0) {
+            clear_message();
+            exec_ll(cmd, 1);
+            buf = get_message();
+            return buf;
         }
         else if (strcmp(argv[0], "pwd")==0) {
             clear_path();

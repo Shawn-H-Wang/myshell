@@ -32,7 +32,7 @@ void add_to_buf(char *token)
     BUF[strlen(BUF)] = '\n';
 }
 
-int is_in(char *token, char *args)
+int is_in(char *token, const char *args)
 {
     int i;
     for (i=0; i<strlen(token); i++) {
@@ -43,11 +43,9 @@ int is_in(char *token, char *args)
                 if (token[k++] != args[j])
                     break;
             }
-            if (k-i == j)
+            if (strlen(args) == j)
                 return 1;
         }
-        else
-            continue;
     }
     return 0;
 }
