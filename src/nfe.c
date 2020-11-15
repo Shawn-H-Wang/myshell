@@ -12,6 +12,8 @@
 #include "pwd.h"
 #include "mkdir.h"
 #include "rmdir.h"
+#include "cat.h"
+#include "cp.h"
 
 int TAG=1;
 
@@ -31,7 +33,7 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "cp") == 0) {
-        return 1;
+        return exec_cp(cmd);
     }
     else if (strcmp(argv[0], "history") == 0) {
         exec_history(cmd, hist);
@@ -46,7 +48,7 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "cat") == 0) {
-        return 1;
+        return exec_cat(cmd);
     }
     else if (strcmp(argv[0], "mv") == 0) {
         return 1;
