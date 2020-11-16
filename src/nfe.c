@@ -54,15 +54,6 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "rm") == 0) {
-        return 1;
-    }
-    else if (strcmp(argv[0], "touch") == 0) {
-        return 1;
-    }
-    else if (strcmp(argv[0], "mkdir") == 0) {
-        return exec_mkdir(cmd);
-    }
-    else if (strcmp(argv[0], "rmdir") == 0) {
         char *args = split_blank(cmd, 1);
         if (args == NULL) {
             puts("None arguments for rmdir! Please check your input!");
@@ -99,7 +90,13 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         free(input_yn);
         return 1;
     }
-    else if (strcmp(argv[0], "su") == 0) {
+    else if (strcmp(argv[0], "touch") == 0) {
+        return 1;
+    }
+    else if (strcmp(argv[0], "mkdir") == 0) {
+        return exec_mkdir(cmd);
+    }
+    else if (strcmp(argv[0], "rmdir") == 0) {
         return 1;
     }
     else if (strcmp(argv[0], "grep")==0) {

@@ -8,6 +8,7 @@
 #include "pipe.h"
 #include "pwd.h"
 #include "cd.h"
+#include "cat.h"
 #include "Shell.h"
 #include "grep.h"
 #include "wc.h"
@@ -107,7 +108,10 @@ char *exec_cmd_pipd(char *cmd, history *hist)
             return buf;
         }
         else if (strcmp(argv[0], "cat")==0) {
-            
+            clear_content();
+            exec_cat_pipe(cmd);
+            buf = get_content();
+            return buf;
         }
         else if (strcmp(argv[0], "ls")==0) {
             clear_message();
