@@ -14,4 +14,3 @@ int main()
     PrintBye();
     return 0;
 }
-
