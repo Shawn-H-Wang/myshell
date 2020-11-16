@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include "hist.h"
 
-#define BUF_MAX 1024
+#define BUF_MAX 2048
 
 void exec_with_pipe(char**, history*);
 

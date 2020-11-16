@@ -24,12 +24,8 @@ char *get_buf()
 
 void add_to_buf(char *token)
 {
-    size_t l = strlen(BUF);
-    int i = (int)l;
-    for (; i<l+strlen(token)+1; i++) {
-        BUF[i] = token[i-l];
-    }
-    BUF[strlen(BUF)] = '\n';
+    strcat(BUF, token);
+    strcat(BUF, "\n");
 }
 
 int is_in(char *token, const char *args)
@@ -54,6 +50,7 @@ char *grep(char *args, char *buf)
 {
     char *token;
     token = strtok(buf, "\n");
+    int i=1;
     while (1) {
         if (token == NULL)
             break;

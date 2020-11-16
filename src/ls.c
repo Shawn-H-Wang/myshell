@@ -164,11 +164,8 @@ void getInfo(int isL, char* path)
         {
             if((ent->d_type == 4 || ent->d_type == 8) && ent->d_name[0]!='.')
             {
-                j += sprintf(MESSAGE+j, "%-14s",ent->d_name);
+                j += sprintf(MESSAGE+j, "%s\n",ent->d_name);
                 newLine++;
-                if(newLine % 3 == 0) {
-                    j += sprintf(MESSAGE+j, "\n");
-                }
             }
         }
         else
@@ -201,7 +198,6 @@ void getInfo(int isL, char* path)
                     j += sprintf(MESSAGE+j, "%.12s ",4+ctime(&info.st_mtime));
 
                     j += sprintf(MESSAGE+j, "%s",ent->d_name);
-
                     
                     static char linkPath[1024];
                     
@@ -217,7 +213,6 @@ void getInfo(int isL, char* path)
         }
     }
     closedir(dir);
-    j += sprintf(MESSAGE+j, "\n");
 }
 
 void showInfo(int isL,char *path)
