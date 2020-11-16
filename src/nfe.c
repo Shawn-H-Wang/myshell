@@ -14,6 +14,7 @@
 #include "rmdir.h"
 #include "cat.h"
 #include "cp.h"
+#include "rm.h"
 
 int TAG=1;
 
@@ -54,40 +55,7 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else if (strcmp(argv[0], "rm") == 0) {
-        char *args = split_blank(cmd, 1);
-        if (args == NULL) {
-            puts("None arguments for rmdir! Please check your input!");
-            return 1;
-        }
-        char *token = split_blank(cmd, 1);
-        char *input_yn = (char*)malloc(4);
-        if (token == NULL) {
-            while (1) {
-                printf("If you want to remove the directory: %s? Please input [yes/no] ", args);
-                ssize_t buffer;
-                size_t buf_bytes = 4;
-                buffer = getline(&input_yn, &buf_bytes, stdin);
-                input_yn[(int)--buffer] = '\0';
-                if (strcmp(input_yn, "no")==0 || strcmp(input_yn, "yes")==0) {
-                    break;
-                }
-                else {
-                    puts("Your input is wrong! Please check and re_input!");
-                }
-            }
-            if (strcmp(input_yn, "yes")==0) {
-                
-            }
-        }
-        else {
-            if (strcmp(args, "-f")==0) {
-                
-            }
-            else {
-                puts("Wrong arguments for rmdir! Please check your input!");
-            }
-        }
-        free(input_yn);
+        exec_rm(cnd);
         return 1;
     }
     else if (strcmp(argv[0], "touch") == 0) {
@@ -104,6 +72,32 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return 1;
     }
     else {
+        // char *args = split_blank(cmd, 1);
+        // int i=0, j=0;
+        // char *cpy = (char*)malloc(sizeof(args)+1);
+        // strcpy(cpy, args);
+        // char *token = split_blank(cpy, 0);
+        // while (token != NULL) {
+        //     ++i;
+        //     token = split_blank(cpy, 1);
+        // }
+        // char *as[i+2];
+        // token = split_blank(args, 0);
+        // for (j=0; j<=i+1; j++) {
+        //     if (j == 0) {
+        //         as[j] = (char*)malloc(sizeof(argv[0]));
+        //         strcpy(as[j], argv[0]);
+        //     }
+        //     else if (j == i+1) {
+        //         as[j] = NULL;
+        //     }
+        //     else {
+        //         as[j] = (char*)malloc(sizeof(token));
+        //         strcpy(as[j], token);
+        //         token = split_blank(args, 1);
+        //     }
+        // }
+        // execvp(as[0], as);
         printf("-myshell: %s: command not found\n", argv[0]);
         return 1;
     }
