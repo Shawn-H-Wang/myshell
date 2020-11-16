@@ -19,8 +19,6 @@ int exec_cp(char *cmd)
 		{
 			perror("open \n");	
 		}
-	//	printf("open %s succeed\n",args);
-		
 		char *token = split_blank(cmd,1);
 	   	if(token == NULL)
 		{
@@ -31,35 +29,34 @@ int exec_cp(char *cmd)
 			if (token[strlen(token)-1] == '/') {
 				int i;
 				for (i=strlen(args)-1; args[i] != '/'; i--);
+				++i;
 				char *p = (char*)malloc(strlen(args)-i);
 				int j;
-				for (j=0; j < sizeof(p); j++, i++) {
+				for (j=0; j < sizeof(p)+1; j++, i++) {
 					p[j] = args[i];
 				}
 				strcat(token, p);
 				free(p);
 			}
-			if((dstfd=open(token,O_CREAT|O_WRONLY,777))==-1) 
+			if (access(token, F_OK) == 0) {
+				printf("cp: \'%s\' and \'%s\' are the same file\n", token, args);
+				return 1;
+			}
+			if((dstfd=open(token, O_CREAT|O_WRONLY,777))==-1) 
 			{
 				perror("open \n");
 			}
-	
-	//	printf("open %s succeed\n",token);
 		}
 	}
 	
 	while((numRead=read(sourfd,buf,BUFSIZE))>0) 
 	{
-		//printf("read:%d\n",numRead);
 		if(((numWrite=write(dstfd,buf,numRead)))!=numRead) 
 		{
 			perror("write \n");
 		}
-	//	printf("write total %d byte to %s\n",totalByte+=numWrite,argv[2]);
 	}	
-	close(sourfd);  
-	//printf("close sourfd\n");
+	close(sourfd);
 	close(dstfd);
-	//printf("close dstfd\n");
 	return 1;
 }
