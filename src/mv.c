@@ -60,8 +60,7 @@ int exec_mv(char *cmd)
     
     while((direntp=readdir(dir_ptr)) != NULL ) 
     {
-        if (strcmp(direntp->d_name, dest_folder) != 0) 
-        {
+        if (strcmp(direntp->d_name, dest_folder) != 0) {
             break;
         }
         else {

@@ -1,10 +1,3 @@
-//
-//  rmdir.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/9.
-//
-
 #ifndef rmdir_h
 #define rmdir_h
 
@@ -15,6 +8,8 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <unistd.h>
+
+int exec_rmdir(char*);
 
 void remove_dir(char*);
 

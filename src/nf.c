@@ -1,10 +1,3 @@
-//
-//  nf.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//  Create new process by the system function "fork"
-
 #include "nf.h"
 
 pid_t wpid;

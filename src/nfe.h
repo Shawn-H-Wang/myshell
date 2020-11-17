@@ -1,10 +1,3 @@
-//
-//  nfe.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/8.
-//
-
 #ifndef nfe_h
 #define nfe_h
 

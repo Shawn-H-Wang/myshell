@@ -1,10 +1,3 @@
-//
-//  wc.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/8.
-//
-
 #ifndef wc_h
 #define wc_h
 

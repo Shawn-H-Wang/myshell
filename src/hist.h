@@ -1,10 +1,3 @@
-//
-//  hist.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #ifndef hist_h
 #define hist_h
 

@@ -1,10 +1,3 @@
-//
-//  Shell.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/3.
-//
-
 #ifndef Shell_h
 #define Shell_h
 

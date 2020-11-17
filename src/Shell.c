@@ -1,10 +1,3 @@
-//
-//  Shell.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/3.
-//
-
 #include "Shell.h"
 #include "cd.h"
 #include "nf.h"

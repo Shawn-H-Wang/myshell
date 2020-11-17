@@ -1,10 +1,3 @@
-//
-//  cd.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #include "cd.h"
 
 void cd(char *dir) {

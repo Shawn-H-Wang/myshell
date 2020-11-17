@@ -1,10 +1,3 @@
-//
-//  nf.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #ifndef nf_h
 #define nf_h
 

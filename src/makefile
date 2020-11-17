@@ -15,6 +15,7 @@ OBJS =	main.o\
 	cat.o\
 	cp.o\
 	mv.o\
+	rm.o\
 	touch.o\
 
 main: ${OBJS}
@@ -28,4 +29,3 @@ clean:
 	# Clean all the .o files
 	rm -rf $(OBJS)
 	
-

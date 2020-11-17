@@ -1,10 +1,3 @@
-//
-//  pipe.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #ifndef pipe_h
 #define pipe_h
 

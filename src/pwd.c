@@ -1,10 +1,3 @@
-//
-//  pwd.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #include "pwd.h"
 
 char path[BUFSIZ];
@@ -76,14 +69,14 @@ void inum_to_dname(ino_t inode_to_find, char *buffer, int buf_len)
             return;
         }
     }
-    fprintf(stderr, "Error Looking for inum: %du\n", (int)inode_to_find);
+    fprintf(stderr, "Error Looking for inum: %d\n", (int)inode_to_find);
 }
 
 // Get the inode_number by the fname
 ino_t get_inode(const char* fname)
 {
     struct stat info;
-    if (stat(fname, &info) == -1) { //
+    if (stat(fname, &info) == -1) {
         perror("Cannot find this directory!!");
         perror(fname);
     }

@@ -1,10 +1,3 @@
-//
-//  pipe.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #include "pipe.h"
 #include "pwd.h"
 #include "cd.h"

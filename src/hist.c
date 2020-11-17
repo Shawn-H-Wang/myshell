@@ -1,10 +1,3 @@
-//
-//  hist.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/7.
-//
-
 #include "hist.h"
 #include "Shell.h"
 

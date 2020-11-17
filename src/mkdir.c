@@ -1,10 +1,3 @@
-//
-//  mkdir.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/8.
-//
-
 #include "mkdir.h"
 #include "cd.h"
 #include "Shell.h"

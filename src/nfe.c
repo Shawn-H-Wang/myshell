@@ -1,12 +1,6 @@
-//
-//  nfe.c
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/8.
-//
-
 #include "nfe.h"
 #include "Shell.h"
+#include "mv.h"
 #include "cd.h"
 #include "ls.h"
 #include "pwd.h"
@@ -14,6 +8,7 @@
 #include "rmdir.h"
 #include "cat.h"
 #include "cp.h"
+#include "touch.h"
 #include "rm.h"
 
 int TAG=1;
@@ -52,20 +47,19 @@ int f_execmd(char *argv[], char *cmd, history *hist)
         return exec_cat(cmd);
     }
     else if (strcmp(argv[0], "mv") == 0) {
-        return 1;
+        return exec_mv(cmd);
     }
     else if (strcmp(argv[0], "rm") == 0) {
-        exec_rm(cnd);
-        return 1;
+        return exec_rm(cmd);
     }
     else if (strcmp(argv[0], "touch") == 0) {
-        return 1;
+        return exec_touch(cmd);
     }
     else if (strcmp(argv[0], "mkdir") == 0) {
         return exec_mkdir(cmd);
     }
     else if (strcmp(argv[0], "rmdir") == 0) {
-        return 1;
+        return exec_rmdir(cmd);
     }
     else if (strcmp(argv[0], "grep")==0) {
         printf("-myshell: %s: command used wrong\n", argv[0]);

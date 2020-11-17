@@ -1,10 +1,3 @@
-//
-//  ls.h
-//  t
-//
-//  Created by Shawn H Wang on 2020/11/9.
-//
-
 #ifndef ls_h
 #define ls_h
 
