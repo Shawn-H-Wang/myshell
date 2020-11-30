@@ -5,6 +5,7 @@ OBJS =	main.o\
 	hist.o\
 	ls.o\
 	mkdir.o\
+	rmdir.o\
 	nf.o\
 	nfe.o\
 	pipe.o\

@@ -14,18 +14,29 @@ int exec_mkdir(char *cmd)
         creat_dir(args);
     }
     else {
-        if (strcmp(args, "-p")==0) {
-            if (strcmp(token, "/")==0 || strcmp(token, "./")==0 || strcmp(token, ".")==0) {
-                puts("Your path is root or current directory, please check your input!");
-                return 1;
+        if (args[0] == '-') {
+            if (strcmp(args, "-p")==0) {
+                if (strcmp(token, "/")==0 || strcmp(token, "./")==0 || strcmp(token, ".")==0) {
+                    puts("Your path is root or current directory, please check your input!");
+                    return 1;
+                }
+                while (token != NULL) {
+                    creat_dirs(token);
+                    token = split_blank(cmd, 1);
+                }
             }
-            creat_dirs(token);
-        }
-        else if (strcmp(args, "--p")==0) {
-            puts("Please input the argument: \"-p\" to create directory in recursion.");
+            else if (strcmp(args, "--p")==0) {
+                puts("Please input the argument: \"-p\" to create directory in recursion.");
+            } else {
+                puts("Wrong arguments for mkdir! Please check your input!");
+            }
         }
         else {
-            puts("Wrong arguments for mkdir! Please check your input!");
+            creat_dir(args);
+            while (token != NULL) {
+                creat_dir(token);
+                token = split_blank(cmd, 1);
+            }
         }
     }
     return 1;
