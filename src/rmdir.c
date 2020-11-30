@@ -33,11 +33,11 @@ int exec_rmdir(char *cmd){
             int tag;
             int tag1;
             char* sonpath;
-            char path_now[100];
-            char* pathnow[100];
+            char* path_now = (char*)malloc(100);
+            char* pathnow = (char*)malloc(100);
             //char* process_path;
             char* token1;
-            char* fatherpath="NULL";
+            char* fatherpath = "NULL";
             token1 = malloc(4);
             strcpy(token1, token);
             getcwd(pathnow, sizeof(pathnow));
@@ -84,7 +84,6 @@ int exec_rmdir(char *cmd){
                 
                 
             }
-            
             free(token1);
         }
         
