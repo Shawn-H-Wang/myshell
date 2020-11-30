@@ -4,11 +4,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
+#include <unistd.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <time.h>
+#include <pwd.h>
+#include <grp.h>
+#include <stdbool.h>
 
-int exec_rm(char*);
+int exec_rm(char* cmd);
 
-void remove_f(char*);
+void myrm_dir(char* pathname);
 
-int print_yn(void);
+int myrm(char* a);
 
 #endif /* rm_h */
