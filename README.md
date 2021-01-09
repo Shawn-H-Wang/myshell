@@ -10,6 +10,49 @@ Shell, commonly known as shell (used to distinguish from the core), refers to th
 
 In the basic course of operating system, we understand some system calls commonly used under Linux and UNIX systems through theoretical study and experimental practice. In order to better understand these abstract system call concepts, students in the class form a group for programming practice. In order to improve the programming ability, the team members use the system calls they have learned to design, write and implement a terminal command line execution program similar to shell, so as to master the relevant knowledge.
 
+## Use Makefile
+
+First, you need to set your current directory into the "src" directory. Then, run with the "make" command:
+
+```
+linux> make main clean
+linux> cd ../
+linux> ./main
+```
+- main  : create the executable file named "main" and mv it to the project directory
+- clean : remove the object file
+
+The makefile will automatically create an executable file named "main" and move it into the project directory.
+The command will by like this:
+
+```
+Weclome To the MyShell!
+
+=======================================
+w      w      w     oooooo     ssssss
+w     w w     w    o      o   s
+ w   w   w   w     o      o    sssss
+  w w     w w      o      o         s
+   w       w        oooooo    ssssss
+=======================================
+
+{root@mycomputer:/root/MYSHELL/myshell} #> 
+{root@mycomputer:/root/MYSHELL/myshell} #> exit
+Shell is exiting...
+===============================================
+BBBBB  Y     Y  EEEEEE  BBBBB  Y     Y  EEEEEE
+B    B  Y   Y   E       B    B  Y   Y   E
+B    B   Y Y    E       B    B   Y Y    E
+BBBBB     Y     EEEEEE  BBBBB     Y     EEEEEE
+B    B    Y     E       B    B    Y     E
+B    B    Y     E       B    B    Y     E
+BBBBB     Y     EEEEEE  BBBBB     Y     EEEEEE
+===============================================
+
+
+<Process completed>
+
+```
 
 ## Requirement Analysis
 
